@@ -15,6 +15,7 @@ function CheckoutPage() {
   };
 
   const showConfirmedState = isConfirmed && hasWeatherPromise;
+  const totalLabel = hasWeatherPromise ? '$2,408' : '$2,359';
 
   return (
     <main className="checkout-page">
@@ -48,9 +49,15 @@ function CheckoutPage() {
           <span>Service fee</span>
           <span>$214</span>
         </div>
+        {hasWeatherPromise && (
+          <div className="payment-row">
+            <span>Trip protection</span>
+            <span>$49</span>
+          </div>
+        )}
         <div className="payment-row total">
           <span>Total</span>
-          <span>$2,359</span>
+          <span>{totalLabel}</span>
         </div>
       </section>
 
