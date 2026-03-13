@@ -96,135 +96,120 @@
   border-top: 2px solid var(--vrbo-border-strong);
 }
 
-/* WeatherPromise module – native Vrbo feel */
+/* WeatherPromise module – Vrbo widget pattern */
 .weather-promise {
-  background: var(--vrbo-bg);
-  border: 1px solid var(--vrbo-border);
+  background: #e8f4fc;
+  border: 1px solid #c5e3f5;
   border-radius: var(--vrbo-radius);
   padding: 24px;
   box-shadow: var(--vrbo-shadow);
 }
 
-.weather-promise .module-label {
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--vrbo-text-muted);
-  margin-bottom: 8px;
+.weather-promise-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 6px;
 }
 
-.weather-promise h4 {
-  font-size: 20px;
-  font-weight: 600;
+.weather-promise-header h4 {
+  font-size: 18px;
+  font-weight: 700;
   color: var(--vrbo-text);
+  margin: 0;
+  line-height: 1.3;
+  flex: 1;
+}
+
+.weather-promise-header svg {
+  flex-shrink: 0;
+  color: var(--vrbo-text-secondary);
+}
+
+.weather-promise-temp-context {
+  font-size: 13px;
+  color: var(--vrbo-text-muted);
   margin: 0 0 16px;
 }
 
-.bundle-badges {
+.weather-promise-bullets {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+}
+
+.weather-promise-bullets li {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  background: var(--vrbo-bg-subtle);
-  border: 1px solid var(--vrbo-border);
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 500;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 15px;
+  line-height: 1.45;
   color: var(--vrbo-text-secondary);
+  margin-bottom: 8px;
 }
 
-.badge svg {
+.weather-promise-bullets li:last-child {
+  margin-bottom: 0;
+}
+
+.weather-promise-bullets .bullet-check {
   flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--vrbo-green);
 }
 
-.temp-range {
-  font-size: 15px;
-  color: var(--vrbo-text-secondary);
-  margin-bottom: 16px;
-  padding: 12px 16px;
-  background: var(--vrbo-bg-subtle);
-  border-radius: var(--vrbo-radius);
-  border: 1px solid var(--vrbo-border);
+.weather-promise-how-link {
+  font-size: 14px;
+  color: var(--vrbo-green);
+  font-weight: 500;
+  text-decoration: none;
 }
 
-.temp-range strong {
-  color: var(--vrbo-text);
-}
-
-.trigger-statement {
-  font-size: 15px;
-  line-height: 1.5;
-  color: var(--vrbo-text-secondary);
-  margin-bottom: 20px;
-  padding: 16px;
-  background: var(--vrbo-bg-subtle);
-  border-radius: var(--vrbo-radius);
-  border-left: 4px solid var(--vrbo-green);
+.weather-promise-how-link:hover {
+  text-decoration: underline;
 }
 
 .weather-promise-footer {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
   padding-top: 20px;
-  border-top: 1px solid var(--vrbo-border);
+  margin-top: 16px;
+  border-top: 1px solid #c5e3f5;
 }
 
-.bundle-price {
-  font-size: 24px;
+.weather-promise-checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--vrbo-text);
+  cursor: pointer;
+}
+
+.weather-promise-checkbox {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--vrbo-green);
+  cursor: pointer;
+}
+
+.weather-promise-price {
+  font-size: 20px;
   font-weight: 600;
   color: var(--vrbo-text);
 }
 
-.bundle-price-note {
-  font-size: 13px;
-  color: var(--vrbo-text-muted);
-  font-weight: 400;
-  display: block;
-  margin-top: 2px;
-}
-
-.add-to-booking {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 28px;
-  font-size: 16px;
-  font-weight: 600;
-  font-family: inherit;
-  color: #fff;
-  background: var(--vrbo-green);
-  border: none;
-  border-radius: var(--vrbo-radius);
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.add-to-booking:hover {
-  background: var(--vrbo-green-hover);
-}
-
-.add-to-booking:active {
-  transform: scale(0.98);
-}
-
 @media (max-width: 480px) {
   .weather-promise-footer {
-    flex-direction: column;
-    align-items: stretch;
+    flex-wrap: wrap;
   }
 
-  .add-to-booking {
+  .weather-promise-price {
     width: 100%;
+    text-align: right;
   }
 }

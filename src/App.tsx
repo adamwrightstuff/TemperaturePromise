@@ -40,32 +40,30 @@ function App() {
       </section>
 
       <section className="weather-promise" aria-labelledby="weather-promise-heading">
-        <p className="module-label">Add protection</p>
-        <h4 id="weather-promise-heading">WeatherPromise</h4>
-        <div className="bundle-badges">
-          <span className="badge">
-            <TempIcon />
-            Temperature protection
-          </span>
-          <span className="badge">
-            <RainIcon />
-            Rain protection
-          </span>
+        <div className="weather-promise-header">
+          <h4 id="weather-promise-heading">Protect your trip from rain and extreme heat</h4>
+          <WeatherIcon />
         </div>
-        <div className="temp-range">
-          <strong>Miami in July:</strong> Historical average high 91°F, average low 78°F
-        </div>
-        <p className="trigger-statement">
-          We'll pay out if temperatures exceed 95°F on 3 or more days of your trip, or if rainfall exceeds 1 inch on 2 or more days.
+        <p className="weather-promise-temp-context">
+          Miami in July: historical average high 91°F, average low 78°F
         </p>
+        <ul className="weather-promise-bullets">
+          <li>
+            <CheckIcon />
+            We'll pay out if temperatures exceed 95°F on 3 or more days of your trip, or if rainfall exceeds 1 inch on 2 or more days.
+          </li>
+          <li>
+            <CheckIcon />
+            No paperwork, no claims, no hassle.
+          </li>
+        </ul>
+        <a href="#how-it-works" className="weather-promise-how-link">How it works</a>
         <div className="weather-promise-footer">
-          <div>
-            <span className="bundle-price">$49</span>
-            <span className="bundle-price-note">one-time for your trip</span>
-          </div>
-          <button type="button" className="add-to-booking">
-            Add to booking
-          </button>
+          <label className="weather-promise-checkbox-label">
+            <input type="checkbox" className="weather-promise-checkbox" />
+            <span>Add WeatherPromise</span>
+          </label>
+          <span className="weather-promise-price">$49</span>
         </div>
       </section>
     </main>
@@ -81,24 +79,20 @@ function LockIcon() {
   );
 }
 
-function TempIcon() {
+function WeatherIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z" />
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 6.34l1.41-1.41M17.66 6.34l1.41 1.41" />
+      <path d="M12 18a6 6 0 0 0 6-6c0-2.5-2-4.5-4-6-1.5 1.5-2.5 3.5-2.5 5.5a4.5 4.5 0 0 0 .5 2.2" />
     </svg>
   );
 }
 
-function RainIcon() {
+function CheckIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <line x1="8" y1="19" x2="8" y2="21" />
-      <line x1="8" y1="13" x2="8" y2="15" />
-      <line x1="16" y1="19" x2="16" y2="21" />
-      <line x1="16" y1="13" x2="16" y2="15" />
-      <line x1="12" y1="21" x2="12" y2="23" />
-      <line x1="12" y1="15" x2="12" y2="17" />
-      <path d="M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25" />
+    <svg className="bullet-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <polyline points="20 6 9 17 4 12" />
     </svg>
   );
 }
