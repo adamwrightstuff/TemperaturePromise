@@ -2,18 +2,13 @@ import { useState } from 'react';
 import './App.css';
 
 function App() {
-  const pathname = window.location.pathname;
-
-  if (pathname === '/weatherpromise') {
-    return <WeatherPromiseExplainer />;
-  }
-
   return <CheckoutPage />;
 }
 
 function CheckoutPage() {
   const [hasWeatherPromise, setHasWeatherPromise] = useState(false);
   const [isConfirmed, setIsConfirmed] = useState(false);
+  const [isHowItWorksOpen, setIsHowItWorksOpen] = useState(false);
 
   const handleConfirmBooking = () => {
     setIsConfirmed(true);
@@ -115,9 +110,13 @@ function CheckoutPage() {
                 <span>No paperwork, no claims, no hassle.</span>
               </li>
             </ul>
-            <a href="/weatherpromise#how-it-works" className="weather-promise-how-link">
+            <button
+              type="button"
+              className="weather-promise-how-link"
+              onClick={() => setIsHowItWorksOpen(true)}
+            >
               How it works
-            </a>
+            </button>
             <div className="weather-promise-footer">
               <label className="weather-promise-checkbox-label">
                 <input
@@ -141,254 +140,69 @@ function CheckoutPage() {
       >
         Confirm booking
       </button>
-    </main>
-  );
-}
 
-function WeatherPromiseExplainer() {
-  const [activeTab, setActiveTab] = useState<'add' | 'dashboard' | 'refund'>('add');
-  const [openFaqId, setOpenFaqId] = useState<string | null>(null);
+      {isHowItWorksOpen && (
+        <div
+          className="wp-overlay"
+          role="dialog"
+          aria-modal="true"
+          aria-label="How WeatherPromise works"
+          onClick={() => setIsHowItWorksOpen(false)}
+        >
+          <div
+            className="wp-tooltip"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="wp-tooltip-close"
+              onClick={() => setIsHowItWorksOpen(false)}
+              aria-label="Close"
+            >
+              ×
+            </button>
 
-  const toggleFaq = (id: string) => {
-    setOpenFaqId((current) => (current === id ? null : id));
-  };
+            <p className="wp-tooltip-header">Rain + temperature protection, one bundle</p>
 
-  return (
-    <main className="explainer-page">
-      <header className="explainer-hero">
-        <p className="explainer-kicker">Vrbo × WeatherPromise</p>
-        <h1>Get a refund if rain or extreme heat spoils your trip</h1>
-        <p className="explainer-subhead">
-          If weather ruins your vacation, WeatherPromise refunds the full cost of your Vrbo stay.
-        </p>
-        <div className="explainer-hero-actions">
-          <a href="/" className="primary-button hero-primary">
-            Book your next stay
-          </a>
-          <a href="#how-it-works" className="secondary-button hero-secondary">
-            How to find WeatherPromise
-          </a>
+            <div className="wp-tooltip-sections">
+              <div className="wp-tooltip-item">
+                <span className="wp-emoji">🌧</span>
+                <div>
+                  <strong>Rain protection</strong> — if rainfall exceeds the threshold on 2+ days of your trip, you get a
+                  full refund of your Vrbo stay
+                </div>
+              </div>
+              <div className="wp-tooltip-item">
+                <span className="wp-emoji">🌡</span>
+                <div>
+                  <strong>Temperature protection</strong> — if temperatures exceed 95°F on 3+ days of your trip, you get a
+                  full refund of your Vrbo stay
+                </div>
+              </div>
+              <div className="wp-tooltip-item">
+                <span className="wp-emoji">✓</span>
+                <div>
+                  <strong>Either triggers, you get paid</strong> — one payout per trip, no claims, no paperwork
+                </div>
+              </div>
+            </div>
+
+            <ol className="wp-tooltip-steps">
+              <li>Add WeatherPromise at checkout</li>
+              <li>WeatherPromise automatically monitors weather at your destination during your trip</li>
+              <li>If either threshold is hit, your refund is issued automatically</li>
+            </ol>
+
+            <p className="wp-tooltip-testimonial">
+              “I will NEVER rent a house without purchasing the WeatherPromise. Forever grateful.”
+            </p>
+
+            <button type="button" className="wp-tooltip-footer-link">
+              See full terms
+            </button>
+          </div>
         </div>
-      </header>
-
-      <section className="value-props" aria-label="Why travelers choose WeatherPromise">
-        <div className="card value-prop-card">
-          <h2>Automatic weather monitoring</h2>
-          <p>Once your trip begins, WeatherPromise monitors real-time weather at your destination.</p>
-        </div>
-        <div className="card value-prop-card">
-          <h2>Hassle-free refunds</h2>
-          <p>
-            If rain or temperature exceeds the WeatherPromise threshold, you&apos;ll receive the full amount of your Vrbo
-            stay. No claims, no hassle.
-          </p>
-        </div>
-        <div className="card value-prop-card">
-          <h2>Rain + temperature bundle</h2>
-          <p>One product covers both. Either triggers, you get paid.</p>
-        </div>
-      </section>
-
-      <section id="how-it-works" className="how-it-works">
-        <div className="how-header">
-          <h2>How WeatherPromise works</h2>
-          <p>Three simple steps from booking to refund.</p>
-        </div>
-
-        <div className="how-tabs" role="tablist" aria-label="How WeatherPromise works">
-          <button
-            type="button"
-            role="tab"
-            className={`how-tab${activeTab === 'add' ? ' active' : ''}`}
-            aria-selected={activeTab === 'add'}
-            onClick={() => setActiveTab('add')}
-          >
-            1. Add WeatherPromise
-          </button>
-          <button
-            type="button"
-            role="tab"
-            className={`how-tab${activeTab === 'dashboard' ? ' active' : ''}`}
-            aria-selected={activeTab === 'dashboard'}
-            onClick={() => setActiveTab('dashboard')}
-          >
-            2. Access your dashboard
-          </button>
-          <button
-            type="button"
-            role="tab"
-            className={`how-tab${activeTab === 'refund' ? ' active' : ''}`}
-            aria-selected={activeTab === 'refund'}
-            onClick={() => setActiveTab('refund')}
-          >
-            3. Get your refund
-          </button>
-        </div>
-
-        <div className="how-panel" role="tabpanel">
-          {activeTab === 'add' && (
-            <div className="how-step-panel">
-              <h3>Add WeatherPromise to your booking</h3>
-              <ul>
-                <li>WeatherPromise is available to US travelers on select Vrbo properties.</li>
-                <li>Select your preferred stay on Vrbo.</li>
-                <li>
-                  Proceed to checkout — you&apos;ll see the WeatherPromise bundle offer showing historical temperature and
-                  predicted rain for your trip dates.
-                </li>
-                <li>Check the box to add WeatherPromise and confirm your booking.</li>
-              </ul>
-            </div>
-          )}
-          {activeTab === 'dashboard' && (
-            <div className="how-step-panel">
-              <h3>Access your WeatherPromise dashboard</h3>
-              <p>
-                After booking, you&apos;ll receive a confirmation email with a link to your WeatherPromise dashboard. From
-                there you can review your coverage, see key dates, and track how weather at your destination is trending
-                against your thresholds.
-              </p>
-            </div>
-          )}
-          {activeTab === 'refund' && (
-            <div className="how-step-panel">
-              <h3>How to get your refund</h3>
-              <p>
-                If rain or extreme heat crosses your WeatherPromise thresholds during your trip, your payout is triggered
-                automatically based on verified weather data—no claims or photos required.
-              </p>
-              <p>You&apos;ll be notified by email and see funds sent back to your original payment method.</p>
-            </div>
-          )}
-        </div>
-      </section>
-
-      <section className="testimonial card" aria-label="Traveler testimonial">
-        <p className="testimonial-quote">
-          “We were nervous booking a beach week in rainy season, but WeatherPromise gave us peace of mind. When storms
-          rolled in, our refund arrived automatically.”
-        </p>
-        <p className="testimonial-name">Ellie, Vrbo traveler</p>
-      </section>
-
-      <section className="faq" aria-label="WeatherPromise frequently asked questions">
-        <h2>Frequently asked questions</h2>
-        <div className="faq-list">
-          <button
-            type="button"
-            className={`faq-item${openFaqId === 'pricing' ? ' open' : ''}`}
-            onClick={() => toggleFaq('pricing')}
-          >
-            <div className="faq-question">
-              <span>What factors affect the pricing of WeatherPromise?</span>
-              <span className="faq-indicator" aria-hidden>
-                {openFaqId === 'pricing' ? '−' : '+'}
-              </span>
-            </div>
-            {openFaqId === 'pricing' && (
-              <p className="faq-answer">
-                Pricing reflects your destination, trip dates, historical weather patterns, and the length of your stay.
-                Higher chances of rain or extreme heat generally mean higher protection costs.
-              </p>
-            )}
-          </button>
-
-          <button
-            type="button"
-            className={`faq-item${openFaqId === 'conditions' ? ' open' : ''}`}
-            onClick={() => toggleFaq('conditions')}
-          >
-            <div className="faq-question">
-              <span>What are the conditions to qualify for a WeatherPromise payout?</span>
-              <span className="faq-indicator" aria-hidden>
-                {openFaqId === 'conditions' ? '−' : '+'}
-              </span>
-            </div>
-            {openFaqId === 'conditions' && (
-              <p className="faq-answer">
-                Your confirmation email outlines the specific rain and temperature thresholds for your booking. If
-                verified weather data shows those thresholds were met during your covered dates, your payout is triggered.
-              </p>
-            )}
-          </button>
-
-          <button
-            type="button"
-            className={`faq-item${openFaqId === 'rainy' ? ' open' : ''}`}
-            onClick={() => toggleFaq('rainy')}
-          >
-            <div className="faq-question">
-              <span>What does WeatherPromise consider a &quot;rainy day&quot;?</span>
-              <span className="faq-indicator" aria-hidden>
-                {openFaqId === 'rainy' ? '−' : '+'}
-              </span>
-            </div>
-            {openFaqId === 'rainy' && (
-              <p className="faq-answer">
-                A rainy day is one where verified precipitation at your destination meets or exceeds the rainfall
-                threshold defined in your WeatherPromise terms, typically measured over a full 24-hour period.
-              </p>
-            )}
-          </button>
-
-          <button
-            type="button"
-            className={`faq-item${openFaqId === 'heat' ? ' open' : ''}`}
-            onClick={() => toggleFaq('heat')}
-          >
-            <div className="faq-question">
-              <span>What does WeatherPromise consider an &quot;extreme heat day&quot;?</span>
-              <span className="faq-indicator" aria-hidden>
-                {openFaqId === 'heat' ? '−' : '+'}
-              </span>
-            </div>
-            {openFaqId === 'heat' && (
-              <p className="faq-answer">
-                An extreme heat day is one where the high temperature at your destination meets or exceeds the
-                temperature threshold specified in your WeatherPromise terms for a given day of your trip.
-              </p>
-            )}
-          </button>
-
-          <button
-            type="button"
-            className={`faq-item${openFaqId === 'refund' ? ' open' : ''}`}
-            onClick={() => toggleFaq('refund')}
-          >
-            <div className="faq-question">
-              <span>How do WeatherPromise customers get their refund?</span>
-              <span className="faq-indicator" aria-hidden>
-                {openFaqId === 'refund' ? '−' : '+'}
-              </span>
-            </div>
-            {openFaqId === 'refund' && (
-              <p className="faq-answer">
-                If your coverage triggers, WeatherPromise issues your refund automatically—no claim forms or photos
-                required—and sends it back to the original payment method used for your Vrbo booking.
-              </p>
-            )}
-          </button>
-
-          <button
-            type="button"
-            className={`faq-item${openFaqId === 'cancel' ? ' open' : ''}`}
-            onClick={() => toggleFaq('cancel')}
-          >
-            <div className="faq-question">
-              <span>How can I cancel my WeatherPromise?</span>
-              <span className="faq-indicator" aria-hidden>
-                {openFaqId === 'cancel' ? '−' : '+'}
-              </span>
-            </div>
-            {openFaqId === 'cancel' && (
-              <p className="faq-answer">
-                WeatherPromise is typically non-refundable once coverage begins. Before your trip starts, check your
-                confirmation email for eligibility and instructions if you need to cancel.
-              </p>
-            )}
-          </button>
-        </div>
-      </section>
+      )}
     </main>
   );
 }
