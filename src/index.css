@@ -1,0 +1,42 @@
+/* Vrbo-inspired: clean, minimal, trust-forward */
+:root {
+  --vrbo-green: #00a699;
+  --vrbo-green-hover: #008489;
+  --vrbo-text: #222;
+  --vrbo-text-secondary: #484848;
+  --vrbo-text-muted: #767676;
+  --vrbo-bg: #fff;
+  --vrbo-bg-subtle: #f7f7f7;
+  --vrbo-border: #ebebeb;
+  --vrbo-border-strong: #dddddd;
+  --vrbo-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --vrbo-radius: 8px;
+  --vrbo-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--vrbo-font);
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--vrbo-text);
+  background: var(--vrbo-bg-subtle);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+  min-height: 100vh;
+}
+
+@media (min-width: 600px) {
+  #root {
+    padding: 32px 24px 64px;
+  }
+}

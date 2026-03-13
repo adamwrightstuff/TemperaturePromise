@@ -1,0 +1,230 @@
+/* Checkout header / trust strip */
+.checkout-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  color: var(--vrbo-text-muted);
+  font-size: 14px;
+}
+
+.checkout-header svg {
+  flex-shrink: 0;
+}
+
+/* Property card */
+.property-card {
+  background: var(--vrbo-bg);
+  border: 1px solid var(--vrbo-border);
+  border-radius: var(--vrbo-radius);
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: var(--vrbo-shadow);
+}
+
+.property-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--vrbo-text);
+  margin: 0 0 4px;
+}
+
+.property-location {
+  font-size: 14px;
+  color: var(--vrbo-text-muted);
+  margin: 0;
+}
+
+/* Dates card */
+.dates-card {
+  background: var(--vrbo-bg);
+  border: 1px solid var(--vrbo-border);
+  border-radius: var(--vrbo-radius);
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: var(--vrbo-shadow);
+}
+
+.dates-card h3,
+.payment-card h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--vrbo-text);
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.dates-range {
+  font-size: 16px;
+  color: var(--vrbo-text-secondary);
+}
+
+.dates-nights {
+  font-size: 14px;
+  color: var(--vrbo-text-muted);
+  margin-top: 4px;
+}
+
+/* Payment summary card */
+.payment-card {
+  background: var(--vrbo-bg);
+  border: 1px solid var(--vrbo-border);
+  border-radius: var(--vrbo-radius);
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: var(--vrbo-shadow);
+}
+
+.payment-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 8px 0;
+  font-size: 15px;
+}
+
+.payment-row:not(:last-child) {
+  border-bottom: 1px solid var(--vrbo-border);
+}
+
+.payment-row.total {
+  font-size: 18px;
+  font-weight: 600;
+  padding-top: 16px;
+  margin-top: 8px;
+  border-top: 2px solid var(--vrbo-border-strong);
+}
+
+/* WeatherPromise module – native Vrbo feel */
+.weather-promise {
+  background: var(--vrbo-bg);
+  border: 1px solid var(--vrbo-border);
+  border-radius: var(--vrbo-radius);
+  padding: 24px;
+  box-shadow: var(--vrbo-shadow);
+}
+
+.weather-promise .module-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--vrbo-text-muted);
+  margin-bottom: 8px;
+}
+
+.weather-promise h4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--vrbo-text);
+  margin: 0 0 16px;
+}
+
+.bundle-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--vrbo-bg-subtle);
+  border: 1px solid var(--vrbo-border);
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--vrbo-text-secondary);
+}
+
+.badge svg {
+  flex-shrink: 0;
+}
+
+.temp-range {
+  font-size: 15px;
+  color: var(--vrbo-text-secondary);
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  background: var(--vrbo-bg-subtle);
+  border-radius: var(--vrbo-radius);
+  border: 1px solid var(--vrbo-border);
+}
+
+.temp-range strong {
+  color: var(--vrbo-text);
+}
+
+.trigger-statement {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--vrbo-text-secondary);
+  margin-bottom: 20px;
+  padding: 16px;
+  background: var(--vrbo-bg-subtle);
+  border-radius: var(--vrbo-radius);
+  border-left: 4px solid var(--vrbo-green);
+}
+
+.weather-promise-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid var(--vrbo-border);
+}
+
+.bundle-price {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--vrbo-text);
+}
+
+.bundle-price-note {
+  font-size: 13px;
+  color: var(--vrbo-text-muted);
+  font-weight: 400;
+  display: block;
+  margin-top: 2px;
+}
+
+.add-to-booking {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: inherit;
+  color: #fff;
+  background: var(--vrbo-green);
+  border: none;
+  border-radius: var(--vrbo-radius);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.add-to-booking:hover {
+  background: var(--vrbo-green-hover);
+}
+
+.add-to-booking:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 480px) {
+  .weather-promise-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .add-to-booking {
+    width: 100%;
+  }
+}
