@@ -335,6 +335,12 @@
   color: var(--vrbo-green);
 }
 
+.wp-tooltip-primary-line {
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: var(--vrbo-text-secondary);
+}
+
 .wp-tooltip-sections {
   display: flex;
   flex-direction: column;
@@ -353,17 +359,22 @@
   flex-shrink: 0;
 }
 
-.wp-tooltip-steps {
-  margin: 8px 0 12px;
-  padding-left: 18px;
-  font-size: 14px;
+.wp-tooltip-quote {
+  border-left: 3px solid var(--vrbo-green);
+  padding-left: 12px;
+  margin: 12px 0 16px;
+}
+
+.wp-tooltip-quote-text {
+  margin: 0 0 4px;
+  font-size: 15px;
   color: var(--vrbo-text-secondary);
 }
 
-.wp-tooltip-testimonial {
+.wp-tooltip-quote-attribution {
+  margin: 0;
   font-size: 13px;
   color: var(--vrbo-text-muted);
-  margin: 0 0 12px;
 }
 
 .wp-tooltip-footer-link {

@@ -171,6 +171,10 @@ function CheckoutPage() {
 
             <p className="wp-tooltip-header">Rain + temperature protection, one bundle</p>
 
+            <p className="wp-tooltip-primary-line">
+              <strong>Either triggers, you get paid</strong> — one payout per trip, no claims, no paperwork.
+            </p>
+
             <div className="wp-tooltip-sections">
               <div className="wp-tooltip-item">
                 <span className="wp-emoji">🌧</span>
@@ -186,23 +190,14 @@ function CheckoutPage() {
                   full refund of your Vrbo stay
                 </div>
               </div>
-              <div className="wp-tooltip-item">
-                <span className="wp-emoji">✓</span>
-                <div>
-                  <strong>Either triggers, you get paid</strong> — one payout per trip, no claims, no paperwork
-                </div>
-              </div>
             </div>
 
-            <ol className="wp-tooltip-steps">
-              <li>Add WeatherPromise at checkout</li>
-              <li>WeatherPromise automatically monitors weather at your destination during your trip</li>
-              <li>If either threshold is hit, your refund is issued automatically</li>
-            </ol>
-
-            <p className="wp-tooltip-testimonial">
-              “I will NEVER rent a house without purchasing the WeatherPromise. Forever grateful.”
-            </p>
+            <div className="wp-tooltip-quote">
+              <p className="wp-tooltip-quote-text">
+                “I will NEVER rent a house without purchasing the WeatherPromise. Forever grateful.”
+              </p>
+              <p className="wp-tooltip-quote-attribution">Ellie, Vrbo traveler</p>
+            </div>
 
             <button type="button" className="wp-tooltip-footer-link">
               See full terms
