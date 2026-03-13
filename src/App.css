@@ -1,3 +1,10 @@
+/* Checkout layout */
+.checkout-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 /* Checkout header / trust strip */
 .checkout-header {
   display: flex;
@@ -201,6 +208,313 @@
   font-size: 20px;
   font-weight: 600;
   color: var(--vrbo-text);
+}
+
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: none;
+  background: var(--vrbo-green);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.primary-button:hover {
+  background: var(--vrbo-green-hover);
+}
+
+.confirm-booking-button {
+  margin-top: 24px;
+  align-self: flex-end;
+}
+
+/* WeatherPromise confirmed state */
+.weather-promise-confirmed {
+  background: #e6f5f0;
+  border-color: #b8e5d4;
+}
+
+.weather-promise-header.confirmed-header {
+  align-items: center;
+}
+
+.weather-promise-confirmed-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: #c9efe0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--vrbo-green);
+  margin-right: 12px;
+}
+
+.confirmed-title {
+  margin-bottom: 4px;
+}
+
+.weather-promise-confirmed-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+}
+
+.weather-promise-confirmed-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--vrbo-text-secondary);
+  margin-bottom: 4px;
+}
+
+.weather-promise-confirmed-list li .bullet-check {
+  color: var(--vrbo-green);
+}
+
+.confirmed-footer {
+  border-top-color: #b8e5d4;
+}
+
+.weather-promise-price-label {
+  font-size: 14px;
+  color: var(--vrbo-text-muted);
+}
+
+/* Explainer page */
+.explainer-page {
+  max-width: 880px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.explainer-hero {
+  background: var(--vrbo-bg);
+  border-radius: var(--vrbo-radius);
+  padding: 24px 24px 28px;
+  box-shadow: var(--vrbo-shadow);
+  border: 1px solid var(--vrbo-border);
+}
+
+.explainer-kicker {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--vrbo-text-muted);
+  margin: 0 0 8px;
+}
+
+.explainer-hero h1 {
+  font-size: 26px;
+  line-height: 1.2;
+  margin: 0 0 12px;
+}
+
+.explainer-subhead {
+  margin: 0 0 20px;
+  font-size: 16px;
+  color: var(--vrbo-text-secondary);
+}
+
+.explainer-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--vrbo-border);
+  background: #fff;
+  color: var(--vrbo-text-secondary);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.secondary-button:hover {
+  border-color: var(--vrbo-border-strong);
+}
+
+.value-props {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: var(--vrbo-bg);
+  border-radius: var(--vrbo-radius);
+  border: 1px solid var(--vrbo-border);
+  box-shadow: var(--vrbo-shadow);
+  padding: 20px;
+}
+
+.value-prop-card h2 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.value-prop-card p {
+  margin: 0;
+  font-size: 15px;
+  color: var(--vrbo-text-secondary);
+}
+
+.how-it-works {
+  background: var(--vrbo-bg);
+  border-radius: var(--vrbo-radius);
+  border: 1px solid var(--vrbo-border);
+  box-shadow: var(--vrbo-shadow);
+  padding: 20px 20px 22px;
+}
+
+.how-header h2 {
+  margin: 0 0 4px;
+  font-size: 20px;
+}
+
+.how-header p {
+  margin: 0 0 16px;
+  color: var(--vrbo-text-muted);
+  font-size: 14px;
+}
+
+.how-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.how-tab {
+  flex: 1;
+  min-width: 160px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--vrbo-border);
+  background: #f7f7f7;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--vrbo-text-secondary);
+  cursor: pointer;
+}
+
+.how-tab.active {
+  border-color: var(--vrbo-green);
+  background: #e1f6f4;
+  color: var(--vrbo-text);
+}
+
+.how-step-panel h3 {
+  margin: 0 0 8px;
+  font-size: 17px;
+}
+
+.how-step-panel p {
+  margin: 0 0 8px;
+  font-size: 15px;
+  color: var(--vrbo-text-secondary);
+}
+
+.how-step-panel ul {
+  padding-left: 20px;
+  margin: 0;
+  font-size: 15px;
+  color: var(--vrbo-text-secondary);
+}
+
+.how-step-panel li + li {
+  margin-top: 4px;
+}
+
+.testimonial-quote {
+  margin: 0 0 8px;
+  font-size: 16px;
+  color: var(--vrbo-text-secondary);
+}
+
+.testimonial-name {
+  margin: 0;
+  font-size: 14px;
+  color: var(--vrbo-text-muted);
+}
+
+.faq {
+  background: var(--vrbo-bg);
+  border-radius: var(--vrbo-radius);
+  border: 1px solid var(--vrbo-border);
+  box-shadow: var(--vrbo-shadow);
+  padding: 20px;
+}
+
+.faq h2 {
+  margin: 0 0 16px;
+  font-size: 20px;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.faq-item {
+  width: 100%;
+  text-align: left;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 10px 12px;
+  background: #f7f7f7;
+  cursor: pointer;
+}
+
+.faq-item.open {
+  border-color: var(--vrbo-border-strong);
+  background: #fff;
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--vrbo-text-secondary);
+}
+
+.faq-indicator {
+  font-size: 18px;
+  color: var(--vrbo-text-muted);
+}
+
+.faq-answer {
+  margin: 8px 0 0;
+  font-size: 14px;
+  color: var(--vrbo-text-secondary);
+}
+
+@media (max-width: 768px) {
+  .value-props {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 480px) {
